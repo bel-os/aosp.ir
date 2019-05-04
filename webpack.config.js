@@ -26,11 +26,16 @@ module.exports = {
       },
       {
         test: /\.(scss|sass)$/,
-        use: [
-            "style-loader",
-            "css-loader",
-            "sass-loader"
-        ]
+        use: [{
+          loader: "style-loader"
+        }, {
+          loader: "css-loader"
+        }, {
+          loader: "sass-loader",
+          options: {
+            implementation: require("sass")
+          }
+        }]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
